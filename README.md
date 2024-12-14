@@ -48,7 +48,7 @@ The application uses the following models:
 - **Programming Language**: Python 3.x
 - **Database**: SQLite (via SQLAlchemy ORM)
 - **CLI Framework**: Click
-- **Database Migrations**: Alembic (optional for future schema management)
+
 
 ---
 
