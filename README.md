@@ -69,7 +69,7 @@ Ensure you have the following installed on your system:
 git clone <your-repository-url>
 cd student_management_system
 
-Step 2: Create and Activate a Virtual Environment (Optional)
+Step 2: Create and Activate a Virtual Environment 
 For an isolated environment:
 
 bash
