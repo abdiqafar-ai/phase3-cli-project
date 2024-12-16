@@ -1,21 +1,10 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from setuptools import setup, find_packages
 
-DATABASE_URL = "sqlite:///school.db"
-
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False,bind=engine)
-
-Base = declarative_base()
-
-
-def init_db():
-  Base.metadata.create_all(bind=engine)
-
-def get_db():
-  db = SessionLocal()
-  try:
-    yield db
-  finally:
-    db.close()
+setup(
+    name="student_management_system",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=[
+        "sqlalchemy",
+    ],
+)

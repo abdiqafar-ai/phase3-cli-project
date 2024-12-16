@@ -1,12 +1,30 @@
-import click
-from databases.student import *
-from databases.course import *
-from databases.grade import *
-from databases.teacher import *
-from databases.setup import *
-from databases.setup import engine
+from databases.student import student_cli
+from databases.teacher import teacher_cli
+from databases.course import course_cli
+from databases.assignment import assignment_cli
 
+def main_menu():
+    while True:
+        print("\nWelcome to the Student Management System!")
+        print("Choose an option:")
+        print("1. Manage Students")
+        print("2. Manage Teachers")
+        print("3. Manage Courses")
+        print("4. Manage Assignments")
+        print("5. Exit")
 
-@click.group()
-def cli():
-  pass
+        choice = input("> ").strip()
+
+        if choice == "1":
+            student_cli()
+        elif choice == "2":
+            teacher_cli()
+        elif choice == "3":
+            course_cli()
+        elif choice == "4":
+            assignment_cli()
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
