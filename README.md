@@ -75,8 +75,8 @@ For an isolated environment:
 bash
 Copy code
 python -m venv venv
-source venv/bin/activate    # On Linux/Mac
-venv\\Scripts\\activate     # On Windows
+source venv/bin/activate    
+venv\\Scripts\\activate    
 Step 3: Install Dependencies
 bash
 Copy code
