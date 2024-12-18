@@ -1,7 +1,7 @@
-from databases.student import student_cli
-from databases.teacher import teacher_cli
-from databases.course import course_cli
-from databases.assignment import assignment_cli
+from cli.student import student_cli
+from cli.teacher import teacher_cli
+from cli.course import course_cli
+from cli.assignment import assignment_cli
 
 def main_menu():
     while True:

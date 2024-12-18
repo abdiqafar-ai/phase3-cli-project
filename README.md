@@ -1,178 +1,156 @@
-<<<<<<< HEAD
-# Phase3 CLI Project
-=======
-# Student Management System
+# Student Management System - CLI Application
 
-The **Student Management System** is a Command-Line Interface (CLI) tool designed to manage student records in a school or college setting. It allows users to perform CRUD (Create, Read, Update, Delete) operations on student data, including:
+## Overview
 
-- Adding students with their details (name, roll number, and enrolled courses).
-- Updating student details or grades.
-- Listing students by roll number or course.
-- Deleting student records.
-
-This application is built using Python and SQLAlchemy for database management. It stores information about students, courses, and grades in a relational database.
-
----
+This **Student Management System** is a Command-Line Interface (CLI) application built using **Python**, **SQLAlchemy ORM**, and **SQLite**. The system is designed to help manage students, teachers, courses, and assignments, providing the functionality to add, update, view, and delete records. The system uses a relational database, allowing you to handle real-world educational data effectively.
 
 ## Features
 
-### Core Functionality
-
-1. **Add Students**:
-   Add a student with a name, roll number, and enrolled courses.
-
-2. **List Students**:
-   Retrieve student details by roll number.
-
-3. **Update Grades**:
-   Update a student's grade for a specific course.
-
-4. **Delete Students**:
-   Remove student records from the database.
-
----
-
-## Database Models
-
-The application uses the following models:
-
-- **Student**: Stores student details (name and roll number).
-- **Course**: Represents courses that students can enroll in.
-- **Grade**: Tracks student grades for specific courses.
-- **Teacher**: (Optional) Represents teachers in the system.
-
----
+- **Student Management**: Add, view, update, and delete student records.
+- **Teacher Management**: Add, view, update, and delete teacher records.
+- **Course Management**: Add, view, update, and delete course records.
+- **Assignment Management**: Add, view, update, and delete assignment records.
 
 ## Technologies Used
 
-- **Programming Language**: Python 3.x
-- **Database**: SQLite (via SQLAlchemy ORM)
-- **CLI Framework**: Click
-
-
----
-
-## Prerequisites
-
-Ensure you have the following installed on your system:
-
-- Python 3.x
-- Virtual environment tool (optional but recommended)
-
----
+- **Python**: The primary language used to implement the application.
+- **SQLAlchemy**: An ORM library used to interact with the SQLite database.
+- **SQLite**: A lightweight relational database used for storing data.
+- **Pipenv**: A dependency management tool used to manage the project’s virtual environment.
+- **VSCode**: A modern IDE used for project development and management.
 
 ## Installation
 
-### Step 1: Clone the Repository
+### Step 1: Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd student_management_system
-
-Step 2: Create and Activate a Virtual Environment 
-For an isolated environment:
-
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate    
-venv\\Scripts\\activate    
-Step 3: Install Dependencies
-bash
-Copy code
-pip install -r requirements.txt
-Step 4: Initialize the Database
-Run the application to create the database tables:
+git clone https://github.com/yourusername/student-management-cli.git
+cd student-management-cli
+Step 2: Install dependencies using Pipenv
+If you haven't installed pipenv yet, you can do so with:
 
 bash
 Copy code
-python main.py
-This will create a SQLite database file (student_management.db) in the root directory.
+pip install pipenv
+Now install the project dependencies:
+
+bash
+Copy code
+pipenv install
+This will set up a virtual environment with all the necessary packages.
+
+Step 3: Activate the virtual environment
+bash
+Copy code
+pipenv shell
+Step 4: Initialize the database
+After setting up the environment, you can initialize the SQLite database by running the following commands:
+
+bash
+Copy code
+python
+>>> from databases.models import Base, engine
+>>> Base.metadata.create_all(engine)
+This will create the necessary tables for students, teachers, courses, and assignments.
+
+Step 5: Run the application
+To start the CLI application, run:
+
+bash
+Copy code
+pipenv run python cli/main.py
+This will open the main menu, allowing you to interact with the system.
+
+Application Structure
+graphql
+Copy code
+/student-management-cli
+    /databases
+        __init__.py            # Database configuration and session
+        models.py              # SQLAlchemy models for Students, Teachers, Courses, Assignments
+    /cli
+        __init__.py            # CLI configuration
+        student_cli.py         # CLI for student management
+        teacher_cli.py         # CLI for teacher management
+        course_cli.py          # CLI for course management
+        assignment_cli.py      # CLI for assignment management
+        main.py                # Main entry point for the application
+    app.py                    # Optional: Main app file for further expansions
+    Pipfile                   # Pipenv dependency manager file
+    Pipfile.lock              # Lock file generated by Pipenv
+models.py - SQLAlchemy Models
+Defines the database models for Student, Teacher, Course, and Assignment using SQLAlchemy.
+
+student_cli.py, teacher_cli.py, course_cli.py, assignment_cli.py - CLI Interfaces
+These files contain functions for interacting with each entity's records via a terminal interface. Users can add, view, update, and delete records for students, teachers, courses, and assignments.
+
+app.py - Main Entry Point
+The entry point of the application. It handles the main menu and provides options to manage students, teachers, courses, and assignments.
 
 Usage
-The application is a CLI tool, and commands are executed via the terminal. Below is the syntax for using the tool:
+Once the application is up and running, you can manage the data by following these steps:
+
+Launch the app: Run the python app.py script to enter the application.
+
+Manage Students:
+
+Add a new student by entering the student's first name, last name, and email.
+View the list of students, update their details, or delete them.
+Manage Teachers:
+
+Add, view, update, or delete teacher records.
+Manage Courses:
+
+Add new courses, view existing ones, update their details, or delete them.
+Manage Assignments:
+
+Add, view, update, or delete assignments related to specific courses.
+Example
+Here is an example of how to add a student and view all students:
 
 bash
 Copy code
-python main.py <command> [arguments]
-Available Commands
-Command	Description
-add-student <name> <roll_number>	Adds a student to the system with a name and roll number.
-list-student <roll_number>	Lists details of a student by their roll number.
-update-grade <roll_number> <grade> <course_name>	Updates a student's grade for a specific course.
-delete-student <roll_number>	Deletes a student by their roll number.
-Examples
-Add a Student:
+$ python cli/main.py
 
-bash
-Copy code
-python main.py add-student "John Doe" 101
-Adds a student named "John Doe" with roll number 101.
+Welcome to the Student Management System!
+Choose an option:
+1. Manage Students
+2. Manage Teachers
+3. Manage Courses
+4. Manage Assignments
+5. Exit
+> 1
 
-List a Student:
+Manage Students:
+1. Add Student
+2. View Students
+3. Update Student
+4. Delete Student
+5. Back to Main Menu
+> 1
 
-bash
-Copy code
-python main.py list-student 101
-Retrieves details of the student with roll number 101.
+Enter First name: John
+Enter Last name: Doe
+Enter Email: johndoe@example.com
 
-Update a Grade:
+Student added successfully!
 
-bash
-Copy code
-python main.py update-grade 101 "A+" "Math"
-Updates the grade for student 101 in the "Math" course to "A+".
+Manage Students:
+1. Add Student
+2. View Students
+3. Update Student
+4. Delete Student
+5. Back to Main Menu
+> 2
 
-Delete a Student:
+ID: 1, Name: John Doe, Email: johndoe@example.com
+Testing
+For testing purposes, you can run unit tests on individual components of the application. You can use a testing framework like unittest or pytest to create and execute tests for the application.
 
-bash
-Copy code
-python main.py delete-student 101
-Removes the student with roll number 101 from the database.
+Contributing
+Contributions are welcome! To contribute, follow these steps:
 
-Project Structure
-plaintext
-Copy code
-student_management_system/
-├── models/
-│   ├── __init__.py         # Model initialization
-│   ├── student.py          # Student model definition
-│   ├── course.py           # Course model definition
-│   ├── grade.py            # Grade model definition
-│   ├── teacher.py          # Teacher model definition
-├── database/
-│   ├── __init__.py         # Database initialization
-│   └── db_setup.py         # SQLAlchemy database setup
-├── cli/
-│   ├── __init__.py         # CLI initialization
-│   ├── commands.py         # CLI commands implementation
-├── migrations/             # Optional folder for Alembic migrations
-├── main.py                 # Entry point for the application
-├── requirements.txt        # Python dependencies
-├── README.md               # Project documentation
-Troubleshooting
-Database Errors: If you encounter schema or database errors, delete the database file and reinitialize it:
-
-bash
-Copy code
-rm student_management.db   # On Linux/Mac
-del student_management.db  # On Windows
-python main.py
-Command Not Found: Ensure you are in the project directory and have Python installed correctly.
-
-Future Enhancements
-Extend CLI Functionality:
-
-Add commands for managing teachers and courses.
-Add advanced search capabilities.
-Web Interface:
-
-Transform the CLI into a web-based application using frameworks like Flask or Django.
-Database Enhancements:
-
-Use a production-grade database like PostgreSQL or MySQL.
-Integrate Alembic for version-controlled schema migrations.
-Tests:
-
-Add unit tests for all CLI commands.
->>>>>>> 2ba855b (well written ReadMe for CLI-based student Management System with CRUD operations and SQLALCHEMY for database management)
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Commit your changes (git commit -am 'Add a new feature').
+Push to the branch (git push origin feature/your-feature-name).
