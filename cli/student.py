@@ -1,68 +1,87 @@
-from databases.models import session, Student
+from databases.models import session, Student, Course
 
 def student_cli():
     while True:
-        print("\nManage Students:")
+        print("\nStudent Management:")
         print("1. Add Student")
         print("2. View Students")
         print("3. Update Student")
         print("4. Delete Student")
-        print("5. Search Students")
-        print("6. Back to Main Menu")
+        print("5. Back to Main Menu")
 
         choice = input("> ").strip()
-
         if choice == "1":
-            first_name = input("Enter First name: ")
-            last_name = input("Enter Last name: ")
-            email = input("Enter Email: ")
-            student = Student(first_name=first_name, last_name=last_name, email=email)
-            session.add(student)
-            session.commit()
-            print("Student added successfully!")
-        
+            add_student()
         elif choice == "2":
-            students = session.query(Student).all()
-            for student in students:
-                print(f"ID: {student.id}, Name: {student.first_name} {student.last_name}, Email: {student.email}")
-
+            view_students()
         elif choice == "3":
-            student_id = input("Enter Student ID to update: ")
-            student = session.query(Student).get(student_id)
-            if student:
-                student.first_name = input(f"Enter new First name (current: {student.first_name}): ")
-                student.last_name = input(f"Enter new Last name (current: {student.last_name}): ")
-                student.email = input(f"Enter new Email (current: {student.email}): ")
-                session.commit()
-                print("Student updated successfully!")
-            else:
-                print("Student not found.")
-
+            update_student()
         elif choice == "4":
-            student_id = input("Enter Student ID to delete: ")
-            student = session.query(Student).get(student_id)
-            if student:
-                confirmation = input(f"Are you sure you want to delete {student.first_name} {student.last_name}? (y/n): ").strip().lower()
-                if confirmation == 'y':
-                    session.delete(student)
-                    session.commit()
-                    print("Student deleted successfully!")
-                else:
-                    print("Deletion cancelled.")
-            else:
-                print("Student not found.")
-
+            delete_student()
         elif choice == "5":
-            search_name = input("Enter student name to search: ").strip()
-            students = session.query(Student).filter(Student.first_name.contains(search_name)).all()
-            if students:
-                for student in students:
-                    print(f"ID: {student.id}, Name: {student.first_name} {student.last_name}, Email: {student.email}")
-            else:
-                print("No students found with that name.")
-
-        elif choice == "6":
             break
-
         else:
             print("Invalid choice. Please try again.")
+
+def add_student():
+    first_name = input("Enter first name: ")
+    last_name = input("Enter last name: ")
+    email = input("Enter email: ")
+    student = Student(first_name=first_name, last_name=last_name, email=email)
+
+    print("\nAvailable Courses:")
+    courses = session.query(Course).all()
+    for course in courses:
+        print(f"{course.id}. {course.name}")
+
+    course_ids = input("Enter course IDs separated by commas: ").split(",")
+    for course_id in course_ids:
+        course = session.query(Course).get(course_id.strip())
+        if course:
+            student.courses.append(course)
+
+    session.add(student)
+    session.commit()
+    print("Student added successfully!")
+
+def view_students():
+    students = session.query(Student).all()
+    for student in students:
+        print(f"\nID: {student.id}, Name: {student.first_name} {student.last_name}, Email: {student.email}")
+        print("Enrolled Courses: ", end="")
+        print(", ".join([course.name for course in student.courses]) or "None")
+
+def update_student():
+    student_id = input("Enter the student ID to update: ")
+    student = session.query(Student).get(student_id)
+    if student:
+        student.first_name = input(f"Enter new first name (current: {student.first_name}): ") or student.first_name
+        student.last_name = input(f"Enter new last name (current: {student.last_name}): ") or student.last_name
+        student.email = input(f"Enter new email (current: {student.email}): ") or student.email
+
+        print("\nAvailable Courses:")
+        courses = session.query(Course).all()
+        for course in courses:
+            print(f"{course.id}. {course.name}")
+
+        course_ids = input("Enter course IDs to enroll (separated by commas): ").split(",")
+        student.courses.clear()  
+        for course_id in course_ids:
+            course = session.query(Course).get(course_id.strip())
+            if course:
+                student.courses.append(course)
+
+        session.commit()
+        print("Student updated successfully!")
+    else:
+        print("Student not found.")
+
+def delete_student():
+    student_id = input("Enter the student ID to delete: ")
+    student = session.query(Student).get(student_id)
+    if student:
+        session.delete(student)
+        session.commit()
+        print("Student deleted successfully!")
+    else:
+        print("Student not found.")
