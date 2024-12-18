@@ -23,51 +23,41 @@ This **Student Management System** is a Command-Line Interface (CLI) application
 
 ### Step 1: Clone the repository
 
-```bash
 git clone https://github.com/yourusername/student-management-cli.git
 cd student-management-cli
-Step 2: Install dependencies using Pipenv
 If you haven't installed pipenv yet, you can do so with:
 
-bash
-Copy code
 pip install pipenv
-Now install the project dependencies:
+Now install the project dependencies
 
-bash
-Copy code
+
 pipenv install
 This will set up a virtual environment with all the necessary packages.
 
-Step 3: Activate the virtual environment
-bash
-Copy code
+Step 3: Activate the virtual environ
+
+
 pipenv shell
 Step 4: Initialize the database
-After setting up the environment, you can initialize the SQLite database by running the following commands:
+After setting up the environment, you can initialize the SQLite database by running the following comman
 
-bash
-Copy code
 python
 >>> from databases.models import Base, engine
 >>> Base.metadata.create_all(engine)
 This will create the necessary tables for students, teachers, courses, and assignments.
 
 Step 5: Run the application
-To start the CLI application, run:
+To start the CLI application, r
 
-bash
-Copy code
-pipenv run python cli/main.py
+run python app.py
 This will open the main menu, allowing you to interact with the system.
 
 Application Structure
 graphql
-Copy code
 /student-management-cli
     /databases
         __init__.py            # Database configuration and session
-        models.py              # SQLAlchemy models for Students, Teachers, Courses, Assignments
+        models.py              # SQLAlchemy models for Students,teachers,                course,                      assignment
     /cli
         __init__.py            # CLI configuration
         student_cli.py         # CLI for student management
@@ -106,27 +96,29 @@ Manage Assignments:
 
 Add, view, update, or delete assignments related to specific courses.
 Example
-Here is an example of how to add a student and view all students:
+Here is an example of how to add a student and view all studen
 
-bash
-Copy code
-$ python cli/main.py
+$ python app.py
 
 Welcome to the Student Management System!
 Choose an option:
+
 1. Manage Students
 2. Manage Teachers
 3. Manage Courses
 4. Manage Assignments
 5. Exit
+
 > 1
 
 Manage Students:
+
 1. Add Student
 2. View Students
 3. Update Student
 4. Delete Student
 5. Back to Main Menu
+
 > 1
 
 Enter First name: John
@@ -136,11 +128,13 @@ Enter Email: johndoe@example.com
 Student added successfully!
 
 Manage Students:
+
 1. Add Student
 2. View Students
 3. Update Student
 4. Delete Student
 5. Back to Main Menu
+
 > 2
 
 ID: 1, Name: John Doe, Email: johndoe@example.com
@@ -150,7 +144,6 @@ For testing purposes, you can run unit tests on individual components of the app
 Contributing
 Contributions are welcome! To contribute, follow these steps:
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature-name).
-Commit your changes (git commit -am 'Add a new feature').
-Push to the branch (git push origin feature/your-feature-name).
+add your changes(git add .)
+Commit your changes (git commit -m "...").
+Push to the branch (git push origin ).
