@@ -27,12 +27,7 @@ Pipenv: Dependency management tool for handling the virtual environment and pack
 VSCode: IDE used for project development and management.
 
 ## Installation
-
-<<<<<<< HEAD
- Install Pipenv
-=======
 Step 2: Install Pipenv
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
 
 If you haven't installed Pipenv yet, you can do so with:
 
@@ -48,11 +43,7 @@ This will set up a virtual environment with all the necessary packages.
 
 ```pipenv shell```
 
-<<<<<<< HEAD
- Initialize the Database
-=======
 # Initialize the Database
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
 
 After setting up the environment, you can initialize the SQLite database by running the following commands:
 
@@ -61,11 +52,8 @@ After setting up the environment, you can initialize the SQLite database by runn
 
 This will create the necessary tables for students, teachers, courses, and assignments.
 
-<<<<<<< HEAD
 #  Run the Application
-=======
-# Run the Application
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
+Run *python app.py*
 
 To start the CLI application, run:
 
@@ -73,11 +61,7 @@ python app.py
 
 This will open the main menu, allowing you to interact with the system.
 
-<<<<<<< HEAD
-# Folder Structure
-=======
 ## Folder Structure
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
 
 /student-management-cli
     /databases
@@ -111,11 +95,7 @@ These files contain functions for interacting with each entity's records via a t
 
 The entry point of the application. It handles the main menu and provides options to manage students, teachers, courses, and assignments.
 
-<<<<<<< HEAD
 # Usage
-=======
-## Usage
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
 
 Once the application is up and running, you can manage the data by following these steps:
 
@@ -188,7 +168,6 @@ ID: 1, Name: John Doe, Email: johndoe@example.com
 
 Contributions are welcome! To contribute, follow these steps:
 
-<<<<<<< HEAD
 Fork the repository.
 2. **Create a new branch**
    ```
@@ -203,15 +182,8 @@ git commit -m "Add feature"
 git push origin feature-name
    ```
 5. **Open a Pull Request**
-=======
-Create a new branch (git add .).
-
-Commit your changes (git commit -m "Add feature").
-
-Push to the branch (git push).
 
 
->>>>>>> dea8115005d0120cba73fb92bec4fe1cf0fcce44
 
 # License
 
