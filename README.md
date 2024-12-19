@@ -28,11 +28,6 @@ VSCode: IDE used for project development and management.
 
 ## Installation
 
-Step 1: Clone the Repository
-
-git clone https://github.com/yourusername/student-management-cli.git
-cd student-management-cli
-
 Step 2: Install Pipenv
 
 If you haven't installed Pipenv yet, you can do so with:
@@ -49,7 +44,7 @@ Step 4: Activate the Virtual Environment
 
 ```pipenv shell```
 
-Step 5: Initialize the Database
+# Initialize the Database
 
 After setting up the environment, you can initialize the SQLite database by running the following commands:
 
@@ -58,7 +53,7 @@ After setting up the environment, you can initialize the SQLite database by runn
 
 This will create the necessary tables for students, teachers, courses, and assignments.
 
-Step 6: Run the Application
+# Run the Application
 
 To start the CLI application, run:
 
@@ -66,7 +61,7 @@ python app.py
 
 This will open the main menu, allowing you to interact with the system.
 
-Folder Structure
+## Folder Structure
 
 /student-management-cli
     /databases
@@ -100,31 +95,31 @@ app.py - Main Entry Point
 
 The entry point of the application. It handles the main menu and provides options to manage students, teachers, courses, and assignments.
 
-Usage
+## Usage
 
 Once the application is up and running, you can manage the data by following these steps:
 
 Launch the App: Run the python app.py script to enter the application.
 
-Manage Students
+# Manage Students
 
 Add a new student by entering the student's first name, last name, and email.
 
 View the list of students, update their details, or delete them.
 
-Manage Teachers
+# Manage Teachers
 
 Add, view, update, or delete teacher records.
 
-Manage Courses
+# Manage Courses
 
 Add new courses, view existing ones, update their details, or delete them.
 
-Manage Assignments
+# Manage Assignments
 
 Add, view, update, or delete assignments related to specific courses.
 
-Example
+# Example
 
 Here is an example of how to add a student and view all students:
 
@@ -169,15 +164,9 @@ Manage Students:
 
 ID: 1, Name: John Doe, Email: johndoe@example.com
 
-Testing
-
-For testing purposes, you can run unit tests on individual components of the application. Use a testing framework like unittest or pytest to create and execute tests for the application.
-
-Contributing
+# Contributing
 
 Contributions are welcome! To contribute, follow these steps:
-
-Fork the repository.
 
 Create a new branch (git add .).
 
@@ -187,7 +176,7 @@ Push to the branch (git push).
 
 
 
-License
+# License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
