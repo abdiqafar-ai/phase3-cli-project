@@ -57,12 +57,12 @@ This will create the necessary tables for students, teachers, courses, and assig
 
 To start the CLI application, run:
 
-python app.py
+**python app.py*
 
 This will open the main menu, allowing you to interact with the system.
 
 ## Folder Structure
-
+```
 /student-management-cli
     /databases
         __init__.py
@@ -82,7 +82,7 @@ This will open the main menu, allowing you to interact with the system.
     README.md
     school.db
     requirements.txt
-
+```
 models.py - SQLAlchemy Models
 
 Defines the database models for Student, Teacher, Course, and Assignment using SQLAlchemy.
