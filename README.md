@@ -14,7 +14,7 @@ Course Management: Add, view, update, and delete course records.
 
 Assignment Management: Add, view, update, and delete assignment records.
 
-## Technologies Used
+## Technologies Used in the project
 
 Python: Programming language used for the application.
 
