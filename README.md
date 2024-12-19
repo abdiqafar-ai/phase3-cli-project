@@ -107,15 +107,15 @@ Add a new student by entering the student's first name, last name, and email.
 
 View the list of students, update their details, or delete them.
 
-# Manage Teachers
+* Manage Teachers *
 
 Add, view, update, or delete teacher records.
 
-# Manage Courses
+* Manage Courses *
 
 Add new courses, view existing ones, update their details, or delete them.
 
-# Manage Assignments
+* Manage Assignments *
 
 Add, view, update, or delete assignments related to specific courses.
 
@@ -181,9 +181,10 @@ git commit -m "Add feature"
    ```
 git push origin feature-name
    ```
-5. **Open a Pull Request**
+5. Open a Pull Request
 
-# License
+
+# LICENSE
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
